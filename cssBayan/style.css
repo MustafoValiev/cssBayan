@@ -59,7 +59,7 @@ body{
     height: 10rem;
 }
 
-.meme-block input[type='radio']:checked ~ .meme-block-row span{
+.meme-block input[type='radio']:checked ~ .meme-block-row .meme-block-title{
     color: black;
 }
 
@@ -71,17 +71,19 @@ body{
     padding: 5px 0;
 }
 
-.meme-block-row svg {
+.meme-block-row i.icon {
     opacity: 0;
+    font-size: 1.5rem;
+    font-weight: 900;
     transition: all 0.25s;
 }
 
-#main:hover .meme-block-row svg{
+#main:hover .meme-block-row i.icon{
     opacity: 1;
 }
 
-.meme-block:hover .meme-block-row svg,
-.meme-block input[type='radio']:checked ~ .meme-block-row svg{
+.meme-block:hover .meme-block-row i.icon,
+.meme-block input[type='radio']:checked ~ .meme-block-row i.icon{
     transform: rotateZ(45deg);
 }
 
