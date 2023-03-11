@@ -6,24 +6,35 @@
 
 body{
     background-color: antiquewhite;
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: bold;
     font-family: "Arial Black", serif;
 }
 
-h1{
-    /*font-size: 150%;*/
+#main {
+    width: 90%;
+    margin: 10px auto;
 }
 
-#main {
-    width: 75%;
-    max-width: 400px;
-    margin: 10px auto;
+#main:hover *{
+    cursor: pointer;
 }
 
 .meme-block{
     display: flex;
     flex-direction: column;
+}
+
+.title{
+    font-size: 2rem;
+}
+
+.meme-block .meme-block-title{
+    color: blue;
+}
+
+#main:hover .meme-block-title{
+    color: black;
 }
 
 .meme-img-block{
@@ -35,25 +46,21 @@ h1{
 }
 
 .meme-img-block img{
-    width: 50%;
     height: 100%;
+    aspect-ratio: 1;
 }
 
-.meme-block:hover .meme-img-block{
-    height: 15rem;
+.meme-block input[type='radio']{
+    display:none;
 }
 
-.meme-block .meme-block-buttons{
-    visibility: hidden;
-    opacity: 0;
-}
-#main:hover .meme-block-buttons{
-    visibility: visible;
-    opacity: 1;
+.meme-block:hover .meme-img-block,
+.meme-block input[type='radio']:checked ~ .meme-img-block{
+    height: 10rem;
 }
 
-.meme-block-row{
-    padding: 5px;
+.meme-block input[type='radio']:checked ~ .meme-block-row span{
+    color: black;
 }
 
 .meme-block-row {
@@ -64,59 +71,62 @@ h1{
     padding: 5px 0;
 }
 
-.meme-block p{
-    color: blue;
-}
-
-.meme-block:hover p{
-    color: black;
-}
-
 .meme-block-row svg {
+    opacity: 0;
     transition: all 0.25s;
 }
 
-.meme-block-row svg:first-of-type {
-    /*opacity: 1;*/
-    /*visibility: visible;*/
-    display: block;
+#main:hover .meme-block-row svg{
+    opacity: 1;
 }
 
-.meme-block-row svg:last-of-type {
-    /*opacity: 0;*/
-    /*visibility: hidden;*/
-    display: none;
+.meme-block:hover .meme-block-row svg,
+.meme-block input[type='radio']:checked ~ .meme-block-row svg{
+    transform: rotateZ(45deg);
 }
 
-.meme-block-row:hover svg:first-of-type {
-    /*opacity: 0;*/
-    /*visibility: hidden;*/
-    display: none;
+@media screen and (min-width: 820px) {
+    #main{
+        width: 75%;
+    }
+
+    .title{
+        font-size: 2.5rem;
+    }
+
+    .meme-block-row{
+        padding: 10px 0;
+    }
+
+    .meme-block .meme-block-title{
+        font-size: 1.5rem;
+    }
+
+    .meme-block:hover .meme-img-block,
+    .meme-block input[type='radio']:checked ~ .meme-img-block{
+        height: 25rem;
+    }
 }
 
-.meme-block-row:hover svg:last-of-type {
-    /*opacity: 1;*/
-    /*visibility: visible;*/
-    display: block;
+@media screen and (min-width: 1920px) {
+    #main{
+        width: 60%;
+    }
+
+    .title{
+        font-size: 3rem;
+    }
+
+    .meme-block-row{
+        padding: 12px 0;
+    }
+
+    .meme-block .meme-block-title{
+        font-size: 2rem;
+    }
+
+    .meme-block:hover .meme-img-block,
+    .meme-block input[type='radio']:checked ~ .meme-img-block{
+        height: 30rem;
+    }
 }
-
-#p1:target{
-    background-color: gold;
-}
-
-#p1:target::before{
-    font: 70% sans-serif;
-    content: "►";
-    color: limegreen;
-    margin-right: 0.25em;
-}
-
-/*@media screen and (min-width: 400px) {*/
-/*    #main{*/
-/*        width: 100%;*/
-/*    }*/
-
-/*    .meme-block-row{*/
-/*        background-color: red;*/
-/*    }*/
-/*}*/
