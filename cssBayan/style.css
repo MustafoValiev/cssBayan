@@ -8,7 +8,7 @@ body{
     background-color: antiquewhite;
     font-size: 14px;
     font-weight: bold;
-    font-family: "Arial Black";
+    font-family: "Arial Black", serif;
 }
 
 h1{
@@ -26,46 +26,22 @@ h1{
     flex-direction: column;
 }
 
-.meme-block img {
-    margin: auto;
-    aspect-ratio: auto;
-}
-
-
-
-.meme-img{
-    position: relative;
-    width: 60%;
-    margin: auto;
-}
-
-.ani-img{
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
+.meme-img-block{
     width: 100%;
-    margin: auto;
-    transform: translateY(-1em);
-    z-index: -1;
-    transition: all 0.25s ease 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    height: 0;
+    transition: height 0.25s;
+    display:flex;
+    justify-content: center;
 }
 
-/*.meme-img:focus .ani-img,*/
-/*.meme-img:focus-within .ani-img,*/
-.meme-block:hover .ani-img{
-     visibility: visible;
-    opacity: 1;
-    z-index: 1;
-    transform: translateY(0);
-    transition-delay: 0s, 0s, 0.3s;
+.meme-img-block img{
+    width: 50%;
+    height: 100%;
 }
 
-.meme-block:hover{
-    height: auto;
+.meme-block:hover .meme-img-block{
+    height: 15rem;
 }
-
 
 .meme-block .meme-block-buttons{
     visibility: hidden;
@@ -124,6 +100,16 @@ h1{
     display: block;
 }
 
+#p1:target{
+    background-color: gold;
+}
+
+#p1:target::before{
+    font: 70% sans-serif;
+    content: "►";
+    color: limegreen;
+    margin-right: 0.25em;
+}
 
 /*@media screen and (min-width: 400px) {*/
 /*    #main{*/
